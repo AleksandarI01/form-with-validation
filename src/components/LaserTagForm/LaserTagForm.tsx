@@ -37,7 +37,7 @@ export const LaserTagForm = () => {
   return (
     <>
       <div className={styles["booking-form"]}>
-        <h2>Lasertag Arena: Booking Form</h2>
+        <h2>Laser Tag Arena: Booking Form</h2>
         <form
           className={styles["form-fields"]}
           onSubmit={handleSubmit(onSubmit)}
@@ -56,7 +56,7 @@ export const LaserTagForm = () => {
                 },
                 minLength: {
                   value: 2,
-                  message: "Firstname needs to have a min. of 2 characters",
+                  message: "it needs to have at least 2 letters",
                 },
                 maxLength: {
                   value: 15,
@@ -82,7 +82,7 @@ export const LaserTagForm = () => {
                 },
                 minLength: {
                   value: 2,
-                  message: "Lastname needs to have a min. of 2 characters",
+                  message: "it needs to have at least 2 letters",
                 },
                 maxLength: {
                   value: 15,
