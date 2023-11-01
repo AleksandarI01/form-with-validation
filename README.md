@@ -1,12 +1,3 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
 # Laser Tag Booking Form
 
 ## Overview
@@ -17,7 +8,9 @@ Github pages was used for the deployment. The live version is accessible through
 
 ## Features
 
-The application consists of a simple booking form with the following fields and their validations:
+The application consists of a simple booking form. Upon successfully submitting the form, the user will find a summary of their booking information displayed below.
+
+To successfully submit the form, please take note of the available fields and their respective validations outlined below. In case of any descrepancies, error messages will guide the user through the correct completion of the form.
 
 - Firstname:
 
@@ -85,3 +78,6 @@ npm run dev
 ```
 
 This will start the development server, and the application is then viewable in your browser.
+
+
+## 
