@@ -1,0 +1,37 @@
+/* styles for the booking form */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-control {
+      margin-bottom: 20px;
+    }
+    
+  .error-container {
+      height: 6px;
+    }
+    
+  .error {
+      color: red;
+      font-size: 12px;
+      text-align: left;
+    }
+  
+  /* styles for the submitted form */
+  .submitted-form {
+    margin-top: 15px;
+    padding: 0 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+  }
+  
