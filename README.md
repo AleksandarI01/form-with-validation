@@ -17,20 +17,71 @@ Github pages was used for the deployment. The live version is accessible through
 
 ## Features
 
-The application consists of a simple booking for with the following fields and their validations:
+The application consists of a simple booking form with the following fields and their validations:
 
-- Firstname
-
-  - it is required
-  - minLength: 2 characters
-  - maxLength: 15 characters
-
-- Lastname
+- Firstname:
 
   - it is required
   - minLength: 2 characters
   - maxLength: 15 characters
 
-- Email
+- Lastname:
+
+  - it is required
+  - minLength: 2 characters
+  - maxLength: 15 characters
+
+- Email:
+
   - it is required
   - it must adhere to the standard email format
+
+- Number of people:
+
+  - it is required
+  - min: 2 people at least
+  - max: a maximum of 10 people
+
+- Date for the laser tag session:
+
+  - it is required
+  - session is bookable from the following day and upwards (today and all previous days are disabled)
+
+- Time for the laser tag session:
+
+  - it is required
+  - time bookable every hour from 08:00 - 18:00 (inclusive) for 1 full hour
+
+- Additional comments:
+  - it is optional
+  - maxLength: 40 characters
+
+## Installation and usage
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+```
+git clone https://github.com/AleksandarI01/form-with-validation.git
+```
+
+2. Navigate to the project directory:
+
+```
+cd form-with-validation
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+4. After the installation is successful, run the project locally using:
+
+```
+npm run dev
+```
+
+This will start the development server, and the application is then viewable in your browser.

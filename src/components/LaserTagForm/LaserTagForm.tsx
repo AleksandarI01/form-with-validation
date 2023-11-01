@@ -95,7 +95,7 @@ export const LaserTagForm = () => {
             </div>
           </div>
 
-          {/* email section */}
+          {/* Email section */}
           <div className={styles["form-control"]}>
             <label htmlFor="email">Email*</label>
             <input
