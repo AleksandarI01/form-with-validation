@@ -79,5 +79,4 @@ npm run dev
 
 This will start the development server, and the application is then viewable in your browser.
 
-
-## 
+## Code structure

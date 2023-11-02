@@ -43,160 +43,175 @@ export const LaserTagForm = () => {
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
-          {/* Firstname section */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="firstname">Firstname*</label>
-            <input
-              type="text"
-              id="firstname"
-              {...register("firstname", {
-                required: {
-                  value: true,
-                  message: "Firstname is required",
-                },
-                minLength: {
-                  value: 2,
-                  message: "it needs to have at least 2 letters",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Firstname must not exceed 15 characters",
-                },
-              })}
-            />
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.firstname?.message}</p>
-            </div>
-          </div>
-
-          {/* Lastname section */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="lastname">Lastname*</label>
-            <input
-              type="text"
-              id="lastname"
-              {...register("lastname", {
-                required: {
-                  value: true,
-                  message: "Lastname is required",
-                },
-                minLength: {
-                  value: 2,
-                  message: "it needs to have at least 2 letters",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Lastname must not exceed 15 characters",
-                },
-              })}
-            />
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.lastname?.message}</p>
-            </div>
-          </div>
-
-          {/* Email section */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="email">Email*</label>
-            <input
-              type="email"
-              id="email"
-              {...register("email", {
-                pattern: {
-                  value:
-                    /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  message: "invalid email format",
-                },
-                required: {
-                  value: true,
-                  message: "email is required",
-                },
-              })}
-            />
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.email?.message}</p>
-            </div>
-          </div>
-
-          {/* Number of people in the booking */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="participants">Number of people*</label>
-            <input
-              type="number"
-              id="participants"
-              {...register("participants", {
-                valueAsNumber: true,
-                required: {
-                  value: true,
-                  message: "Number of people is required",
-                },
-                validate: {
-                  min: (fieldValue) => {
-                    return fieldValue >= 2 || "must be at least 2 participants";
+          <div className={styles.row}>
+            {/* Firstname section */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="firstname">Firstname*</label>
+              <input
+                type="text"
+                id="firstname"
+                {...register("firstname", {
+                  required: {
+                    value: true,
+                    message: "Firstname is required",
                   },
-                  max: (fieldValue) => {
-                    return (
-                      fieldValue <= 10 ||
-                      "the room has space for a max of 10 people"
-                    );
+                  minLength: {
+                    value: 2,
+                    message: "it needs to have at least 2 letters",
                   },
-                },
-              })}
-            />
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.participants?.message}</p>
+                  maxLength: {
+                    value: 15,
+                    message: "Firstname must not exceed 15 characters",
+                  },
+                  pattern: {
+                    value: /[A-Za-z]+$/,
+                    message: "only letters are allowed",
+                  },
+                })}
+              />
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.firstname?.message}</p>
+              </div>
+            </div>
+
+            {/* Lastname section */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="lastname">Lastname*</label>
+              <input
+                type="text"
+                id="lastname"
+                {...register("lastname", {
+                  required: {
+                    value: true,
+                    message: "Lastname is required",
+                  },
+                  minLength: {
+                    value: 2,
+                    message: "it needs to have at least 2 letters",
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: "Lastname must not exceed 15 characters",
+                  },
+                  pattern: {
+                    value: /[A-Za-z]+$/,
+                    message: "only letters are allowed",
+                  },
+                })}
+              />
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.lastname?.message}</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.row}>
+            {/* Email section */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="email">Email*</label>
+              <input
+                type="email"
+                id="email"
+                {...register("email", {
+                  pattern: {
+                    value:
+                      /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    message: "invalid email format",
+                  },
+                  required: {
+                    value: true,
+                    message: "email is required",
+                  },
+                })}
+              />
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.email?.message}</p>
+              </div>
+            </div>
+
+            {/* Number of people in the booking */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="participants">Number of people*</label>
+              <input
+                type="number"
+                id="participants"
+                {...register("participants", {
+                  valueAsNumber: true,
+                  required: {
+                    value: true,
+                    message: "Number of people is required: 2-10",
+                  },
+                  validate: {
+                    min: (fieldValue) => {
+                      return (
+                        fieldValue >= 2 || "must be at least 2 participants"
+                      );
+                    },
+                    max: (fieldValue) => {
+                      return (
+                        fieldValue <= 10 ||
+                        "the room has space for a max of 10 people"
+                      );
+                    },
+                  },
+                })}
+              />
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.participants?.message}</p>
+              </div>
             </div>
           </div>
 
-          {/* Date for the laser tag session */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="date">Date*</label>
-            <input
-              type="date"
-              id="date"
-              {...register("date", {
-                valueAsDate: true,
-                required: {
-                  value: true,
-                  message: "desired date is required",
-                },
-              })}
-              min={(() => {
-                const tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                return tomorrow.toISOString().split("T")[0];
-              })()}
-            />
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.date?.message}</p>
+          <div className={styles.row}>
+            {/* Date for the laser tag session */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="date">Date*</label>
+              <input
+                type="date"
+                id="date"
+                {...register("date", {
+                  valueAsDate: true,
+                  required: {
+                    value: true,
+                    message: "desired date is required",
+                  },
+                })}
+                min={(() => {
+                  const tomorrow = new Date();
+                  tomorrow.setDate(tomorrow.getDate() + 1);
+                  return tomorrow.toISOString().split("T")[0];
+                })()}
+              />
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.date?.message}</p>
+              </div>
             </div>
-          </div>
 
-          {/* Time for the laser tag session */}
-          <div className={styles["form-control"]}>
-            <label htmlFor="time">Available time slots*</label>
-            <select
-              {...register("time", {
-                required: {
-                  value: true,
-                  message: "desired time is required",
-                },
-              })}
-            >
-              <option value="08:00">08:00</option>
-              <option value="09:00">09:00</option>
-              <option value="10:00">10:00</option>
-              <option value="11:00">11:00</option>
-              <option value="12:00">12:00</option>
-              <option value="13:00">13:00</option>
-              <option value="14:00">14:00</option>
-              <option value="15:00">15:00</option>
-              <option value="16:00">16:00</option>
-              <option value="17:00">17:00</option>
-              <option value="18:00">18:00</option>
-            </select>
-            <div className={styles["error-container"]}>
-              <p className={styles.error}>{errors.time?.message}</p>
+            {/* Time for the laser tag session */}
+            <div className={styles["form-control"]}>
+              <label htmlFor="time">Available time slots*</label>
+              <select
+                {...register("time", {
+                  required: {
+                    value: true,
+                    message: "desired time is required",
+                  },
+                })}
+              >
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+              </select>
+              <div className={styles["error-container"]}>
+                <p className={styles.error}>{errors.time?.message}</p>
+              </div>
             </div>
           </div>
 
